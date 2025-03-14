@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
 import { QuizProvider } from "./context/QuizContext";
+import Quiz from "./pages/Quiz"; // New import
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <QuizProvider>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/quiz" element={<Quiz />} />
             <Route path="/results" element={<Results />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,8 +1,8 @@
 
-import { QuizLayout } from "@/components/QuizLayout";
+import { LandingPage } from "@/components/LandingPage";
 
 const Index = () => {
-  return <QuizLayout />;
+  return <LandingPage />;
 };
 
 export default Index;

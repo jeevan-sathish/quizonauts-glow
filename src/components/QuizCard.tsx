@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { quiz } from "@/data/quizData";
 import { useQuiz } from "@/context/QuizContext";
-import { ArrowLeft, ArrowRight, HelpCircle, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, HelpCircle, X, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Separator } from "@/components/ui/separator";
 
@@ -117,9 +117,9 @@ export function QuizCard() {
                 variants={optionVariants}
               >
                 <button
-                  className={`option-card w-full text-left ${
+                  className={`option-card w-full text-left transition-all duration-300 ${
                     selectedOption === index
-                      ? "border-primary bg-primary/10 dark:bg-primary/20"
+                      ? "border-primary bg-primary/20 dark:bg-primary/30 shadow-md"
                       : "bg-card hover:bg-secondary/50 dark:hover:bg-secondary/20"
                   } ${selectedOption !== null && selectedOption !== index ? "opacity-50" : ""}`}
                   onClick={() => handleSelectOption(index)}
@@ -133,7 +133,12 @@ export function QuizCard() {
                     }`}>
                       {String.fromCharCode(65 + index)}
                     </div>
-                    <div className="flex-1 pt-0.5">{option}</div>
+                    <div className="flex-1 pt-0.5">
+                      <span className={selectedOption === index ? "font-medium" : ""}>{option}</span>
+                    </div>
+                    {selectedOption === index && (
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 animate-scale-in" />
+                    )}
                   </div>
                 </button>
               </motion.div>
